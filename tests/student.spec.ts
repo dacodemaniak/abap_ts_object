@@ -1,3 +1,4 @@
+import { Note } from '../src/note'
 import { Student } from './../src/student'
 
 describe ('Student test suite', () => {
@@ -24,7 +25,10 @@ describe ('Student test suite', () => {
 
     it ('Should have one item in notes', () => {
         const student = new Student()
-        student.addNote(15)
+        const note: Note = new Note()
+        note.setNote(15)
+        note.setMatiere('Algo')
+        student.addNote(note)
 
         expect(student.getNotes().length).toEqual(1)
     })

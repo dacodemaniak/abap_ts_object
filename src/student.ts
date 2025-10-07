@@ -1,3 +1,5 @@
+import type { Note } from "./note"
+
 /**
  * @class Student
  * @version 1.0.0
@@ -9,7 +11,7 @@
 export class Student {
     private lastname: string = ''
     private firstname: string = ''
-    private notes: Array<any> = []
+    private notes: Array<Note> = []
 
     /**
      * 
@@ -43,7 +45,7 @@ export class Student {
         return this.firstname
     }
 
-    getNotes(): Array<any> {
+    getNotes(): Array<Note> {
         return this.notes
     }
 
@@ -51,7 +53,7 @@ export class Student {
      * Push a new note in 
      * @param note 
      */
-    addNote(note: number): void {
+    addNote(note: Note): void {
         this.notes.push(note)
     }
 }
