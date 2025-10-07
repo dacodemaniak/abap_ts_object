@@ -10,6 +10,7 @@ import type { Note } from "./note"
  */
 export class Student {
 
+
     private lastname: string = ''
     private firstname: string = ''
     private notes: Array<Note> = []
@@ -64,5 +65,27 @@ export class Student {
             cumul = cumul + note.getNote()
         }
         return cumul / this.notes.length
+    }
+
+    averageByTheme(): Array<number> {
+        const result: Array<number> = []
+        const matieres: Set<string> = new Set<string>()
+
+        const lesMatieres = this.notes.map((note: Note) => note.getMatiere())
+            .forEach((matiere: string) => {
+                matieres.add(matiere)
+            })
+        
+        for (const matiere of matieres) {
+            const notes: Array<number> = this.notes
+                .filter((note: Note) => note.getMatiere() === matiere)
+                .map((note: Note) => note.getNote())
+            let cumul = 0
+            for (const note of notes) {
+                cumul += note
+            }
+            result.push(cumul / notes.length)
+        }
+        return result
     }
 }
