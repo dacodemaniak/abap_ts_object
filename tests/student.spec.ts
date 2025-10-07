@@ -32,4 +32,26 @@ describe ('Student test suite', () => {
 
         expect(student.getNotes().length).toEqual(1)
     })
+
+    it('Should have the correct note average', () => {
+        const student = new Student()
+
+        let note: Note = new Note()
+        note.setNote(15)
+        note.setMatiere('Algo')
+        student.addNote(note)
+
+        note = new Note()
+        note.setNote(10)
+        note.setMatiere('SQL')
+        student.addNote(note)
+
+        note = new Note()
+        note.setNote(12)
+        note.setMatiere('SQL')
+        student.addNote(note)
+
+        expect(student.getGeneralAverage()).toBeCloseTo(12.3, 1)
+
+    })
 })

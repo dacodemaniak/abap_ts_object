@@ -9,6 +9,7 @@ import type { Note } from "./note"
  *  - Added notes array attributes with methods that push and get array
  */
 export class Student {
+
     private lastname: string = ''
     private firstname: string = ''
     private notes: Array<Note> = []
@@ -55,5 +56,13 @@ export class Student {
      */
     addNote(note: Note): void {
         this.notes.push(note)
+    }
+
+    getGeneralAverage(): number {
+        let cumul: number = 0
+        for (const note of this.notes) {
+            cumul = cumul + note.getNote()
+        }
+        return cumul / this.notes.length
     }
 }
