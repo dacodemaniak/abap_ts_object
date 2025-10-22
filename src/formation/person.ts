@@ -55,5 +55,9 @@ export abstract class Person {
         return this.strategy.transform(this)
     }
 
+    public setStrategy(strategy: NameStrategy): void {
+        this.strategy = strategy
+    }
+
     public abstract sayHello(): void;
 }

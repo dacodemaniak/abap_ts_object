@@ -1,5 +1,7 @@
 import { Student } from '../src/formation/student'
 import { StudentBuilder } from './../src/formation/student-builder'
+import { FirstnameFirstStrategy } from './../src/formation/strategies/firstname-first-strategy'
+import { FirstnameInitialFirstStrategy } from './../src/formation/strategies/firstname-intial-first-strategy'
 
 describe('Student builder test suite', () => {
     let studentBuilder: StudentBuilder
@@ -40,7 +42,7 @@ describe('Student builder test suite', () => {
             .email('jean-luc.aubert@aelion.fr')
             .phone('05 23 45 78 89')
         const student = studentBuilder.build()
-
+        student.setStrategy(new FirstnameFirstStrategy())
         expect(student.getDisplayName()).toBe('Jean-Luc Aubert')
     })
 
@@ -51,7 +53,7 @@ describe('Student builder test suite', () => {
             .email('jean-luc.aubert@aelion.fr')
             .phone('05 23 45 78 89')
         const student = studentBuilder.build()
-
+        student.setStrategy(new FirstnameInitialFirstStrategy())
         expect(student.getDisplayName()).toBe('J. Aubert')
     })
 })
