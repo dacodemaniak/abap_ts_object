@@ -13,10 +13,11 @@ describe('Student builder test suite', () => {
     })
 
     it('Should return a Student instance', () => {
-        studentBuilder.setName('Aubert')
-        studentBuilder.setFirstname('Jean-Luc')
-        studentBuilder.setEmail('jean-luc.aubert@aelion.fr')
-        studentBuilder.setPhone('05 23 45 78 89')
+        studentBuilder
+            .name('Aubert')
+            .firstname('Jean-Luc')
+            .email('jean-luc.aubert@aelion.fr')
+            .phone('05 23 45 78 89')
 
         expect(studentBuilder.build()).toBeInstanceOf(Student)
     })
