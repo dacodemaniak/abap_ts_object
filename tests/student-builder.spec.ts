@@ -21,4 +21,15 @@ describe('Student builder test suite', () => {
 
         expect(studentBuilder.build()).toBeInstanceOf(Student)
     })
+
+    it('Should get Aubert Jean-Luc', () => {
+        studentBuilder
+            .name('Aubert')
+            .firstname('Jean-Luc')
+            .email('jean-luc.aubert@aelion.fr')
+            .phone('05 23 45 78 89')
+        const student = studentBuilder.build()
+
+        expect(student.getDisplayName()).toBe('Aubert Jean-Luc')
+    })
 })

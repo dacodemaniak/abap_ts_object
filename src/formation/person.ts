@@ -1,3 +1,6 @@
+import { NameFirstStrategy } from "./strategies/name-first-strategy";
+import type { NameStrategy } from "./strategies/name-strategy";
+
 export abstract class Person {
     protected name: string = '';
     protected firstname: string = '';
@@ -5,6 +8,8 @@ export abstract class Person {
     protected phone: string = '';
     public birthdate: Date = new Date();
     public gender: string = '';
+
+    private strategy: NameStrategy = new NameFirstStrategy()
 
     public getName(): string {
         return this.name;
@@ -44,6 +49,10 @@ export abstract class Person {
         if (this.phone === '') {
             this.phone = phone;
         }
+    }
+
+    public getDisplayName(): string {
+        return this.strategy.transform(this)
     }
 
     public abstract sayHello(): void;
