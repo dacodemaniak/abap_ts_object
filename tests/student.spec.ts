@@ -1,4 +1,4 @@
-import { Student } from './../src/student'
+import { Student } from './../src/formation/student'
 
 describe ('Student test suite', () => {
     it('Should make a Student instance', () => {
@@ -8,17 +8,27 @@ describe ('Student test suite', () => {
 
     it('Should have an empty lastname and firstname', () => {
         const student = new Student()
-        expect(student.getLastname()).toBe('')
-        expect(student.getFirstname()).toBe('')
+        expect(student.getName()).toBe('')
+        expect(student.getName()).toBe('')
     })
 
     it('Should have Aubert Jean-Luc as last and firstname', () => {
         const student = new Student()
 
-        student.setLastname('Aubert')
+        student.setName('Aubert')
         student.setFirstname('Jean-Luc')
         
-        expect(student.getLastname()).toBe('Aubert')
+        expect(student.getName()).toBe('Aubert')
         expect(student.getFirstname()).toBe('Jean-Luc')
+    })
+
+    it('Shouldnt mutate the name after it was set', () => {
+        const student = new Student()
+
+        student.setName('Aubert')
+        
+        student.setName('Casper le Fantôme')
+
+        expect(student.getName()).toBe('Aubert')
     })
 })
