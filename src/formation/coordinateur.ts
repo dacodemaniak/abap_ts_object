@@ -6,8 +6,7 @@ export class Coordinateur extends Person {
     private static instanciations: number = 0
 
     private constructor() {
-        super()
-        Coordinateur.instanciations++
+        super() // Required for extension !
     }
 
     public static getInstance(): Coordinateur {
@@ -16,10 +15,6 @@ export class Coordinateur extends Person {
         }
 
         return Coordinateur.instance
-    }
-
-    public static getInstanciations(): number {
-        return Coordinateur.instanciations
     }
 
     public sayHello(): void {
