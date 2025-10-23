@@ -1,4 +1,4 @@
-import type { BuilderInterface } from "../core/builder.interface";
+import type { BuilderInterface } from "../core/builder/builder.interface";
 import { Promo } from "./promo";
 
 export class PromoBuilder implements BuilderInterface<Promo> {
