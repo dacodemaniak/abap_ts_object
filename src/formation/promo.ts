@@ -1,3 +1,4 @@
+import type { CollectionInterface } from "../core/collection/collection-interface";
 import type { Student } from "./student";
 import { StudentCollection } from "./student-collection";
 
@@ -5,7 +6,7 @@ export class Promo {
     private name: string = ''
     private beginAt: Date = new Date()
     private endAt: Date = new Date()
-    private students: StudentCollection = new StudentCollection()
+    private students: CollectionInterface<Student> = new StudentCollection()
 
     public getName(): string {
         return this.name;
