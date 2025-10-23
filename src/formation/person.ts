@@ -11,6 +11,8 @@ export abstract class Person {
 
     private strategy: NameStrategy = new NameFirstStrategy()
 
+    constructor() {}
+    
     public getName(): string {
         return this.name;
     }

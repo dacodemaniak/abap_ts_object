@@ -1,12 +1,12 @@
 import { Person } from "./person"
 
-export class Coordinateur {
+export class Coordinateur extends Person {
 
     private static instance: Coordinateur | undefined = undefined
     private static instanciations: number = 0
-    private name: string = ''
 
     private constructor() {
+        super()
         Coordinateur.instanciations++
     }
 
@@ -22,11 +22,7 @@ export class Coordinateur {
         return Coordinateur.instanciations
     }
 
-    public setName(name: string): void {
-        this.name = name
-    }
-
-    public getName(): string {
-        return this.name
+    public sayHello(): void {
+        throw new Error("Method not implemented.")
     }
 }
