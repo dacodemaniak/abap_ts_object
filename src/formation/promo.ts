@@ -1,7 +1,11 @@
+import type { Student } from "./student";
+import { StudentCollection } from "./student-collection";
+
 export class Promo {
     private name: string = ''
     private beginAt: Date = new Date()
     private endAt: Date = new Date()
+    private students: StudentCollection = new StudentCollection()
 
     public getName(): string {
         return this.name;
@@ -26,5 +30,17 @@ export class Promo {
 
     public setEndAt(endAt: Date): void {
         this.endAt = endAt;
+    }
+
+    public addStudent(student: Student): void {
+        this.students.add(student)
+    }
+
+    public removeStudent(student: Student): void {
+        this.students.remove(student)
+    }
+
+    public getStudentsNumber(): number {
+        return this.students.getLength()
     }
 }
